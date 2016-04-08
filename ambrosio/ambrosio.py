@@ -16,6 +16,7 @@ class Ambrosio(object):
         self.cl = CommandList()
         self.channels = []
         self.channels.append(ch.TextChannel())
+        self.channels.append(ch.TelegramChannel())
 
         self.actions = []
         self.actions.append(ac.MusicPlayer())
