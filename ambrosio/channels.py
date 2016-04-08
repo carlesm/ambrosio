@@ -6,6 +6,9 @@ class Channel(object):
         super(Channel, self).__init__()
         self.name = name
 
+    def respond(self, response):
+        print "RESPONSE: ", response
+
 
 class TextChannel(Channel):
     """Channel class, reads commands from file"""
