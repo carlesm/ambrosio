@@ -33,6 +33,18 @@ class Ambrosio(object):
 
     def execute_command(self, command):
         print "Will execute", command
+        # Foreach Action in actions.
+        #   if is_for_you()
+        #       action.do
+        words = command.split()
+        first_word = words[0]
+        rest_words = words[1:]
+        for a in self.actions:
+            if a.is_for_you(first_word):
+                a.do(rest_words)
+                break
+        else:
+            print "No t'entenc"
 
     def mainloop(self):
         # While True:
