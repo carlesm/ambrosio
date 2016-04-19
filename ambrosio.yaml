@@ -1,0 +1,12 @@
+telegram:
+  token: LOTOKENQUEMEROBEU
+  usuaris:
+    - carlesm
+    - evam
+musicplayer:
+  directories:
+    - /home/carlesm/musicplayer
+    - /home/shared/Musics
+homecontrol:
+  windows:
+    room1: open
