@@ -3,7 +3,7 @@
 
 from commandlist import CommandList
 import channels as ch
-import actions_fitxer as ac
+import actions as ac
 import time
 
 
