@@ -48,7 +48,7 @@ class Ambrosio(object):
         else:
             print "No t'entenc"
         return response
-        
+
     def mainloop(self):
         # While True:
         #   command = get_command
