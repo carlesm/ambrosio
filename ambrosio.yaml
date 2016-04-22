@@ -1,12 +1,4 @@
 telegram:
-  token: LOTOKENQUEMEROBEU
+  token: "134963018:AAEV40aoY1zGK2ECr9kIBYzxDj9NLNDpIRI"
   usuaris:
-    - carlesm
-    - evam
-musicplayer:
-  directories:
-    - /home/carlesm/musicplayer
-    - /home/shared/Musics
-homecontrol:
-  windows:
-    room1: open
+    - 141990140

@@ -5,10 +5,11 @@ import telepot
 
 class AmbrosioBot(telepot.Bot):
     """AmbrosioBot is my telegram bot"""
-    def __init__(self, token):
+    def __init__(self, token, usuaris):
         super(AmbrosioBot, self).__init__(token)
         self.clist = None
         self.chat_id = None
+        self.users = usuaris
 
     def set_list(self, clist):
         self.clist = clist
@@ -17,9 +18,12 @@ class AmbrosioBot(telepot.Bot):
         content_type, chat_type, chat_id = telepot.glance(msg)
         if content_type == 'text':
             command = msg['text']
-            if self.clist is not None:
-                self.clist.append(command)
-                self.chat_id = chat_id
+            if msg['from']['id'] in self.users:
+                if self.clist is not None:
+                    self.clist.append(command)
+                    self.chat_id = chat_id
+            else:
+                print "A cagar!"
 
     def respond(self, response):
         if self.chat_id is not None:
@@ -29,9 +33,10 @@ class AmbrosioBot(telepot.Bot):
 
 class TelegramChannel(Channel):
     """Channel class, received commands from telegram"""
-    def __init__(self, name="TelegramChannel"):
-        super(TelegramChannel, self).__init__(name)
-        self.bot = AmbrosioBot("134963018:AAEV40aoY1zGK2ECr9kIBYzxDj9NLNDpIRI")
+    def __init__(self, cfg=None, name="TelegramChannel"):
+        super(TelegramChannel, self).__init__(cfg, name)
+        token = self.cfg["telegram"]["token"]
+        self.bot = AmbrosioBot(token, self.cfg["telegram"]["usuaris"])
         self.messages = []
         self.bot.set_list(self.messages)
         self.bot.notifyOnMessage()

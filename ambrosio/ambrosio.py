@@ -18,8 +18,9 @@ class Ambrosio(object):
 
         self._get_config()
         self.channels = []
-        self.channels.append(ch.TextChannel())
-        self.channels.append(ch.TelegramChannel())
+        c = ch.TextChannel(self.cfg)
+        self.channels.append(c)
+        self.channels.append(ch.TelegramChannel(self.cfg))
         self.actions = []
         self.actions.append(ac.MusicPlayer())
 
