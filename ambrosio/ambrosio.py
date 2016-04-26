@@ -23,6 +23,7 @@ class Ambrosio(object):
         self.channels.append(ch.TelegramChannel(self.cfg))
         self.actions = []
         self.actions.append(ac.MusicPlayer())
+        self.actions.append(ac.SensorAction())
 
 
     def _get_config(self):

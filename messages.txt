@@ -1,4 +1,3 @@
 music play
 music stop
-lights livingroom off
-ambilight on
+temperature
