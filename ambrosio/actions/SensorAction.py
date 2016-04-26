@@ -1,4 +1,5 @@
 from Action import Action
+import subprocess
 
 
 class SensorAction(Action):
@@ -9,7 +10,9 @@ class SensorAction(Action):
 
     def do(self, command):
         print "Will measure temperature ", " ".join(command)
-        return "OK"
+        th = subprocess.check_output(['sudo',
+                                      'AdafruitDHT', '11', '4'])
+        return th
 
     def is_for_you(self, word):
         if word in self.triggers:
