@@ -23,7 +23,7 @@ class AmbrosioBot(telepot.Bot):
                     self.clist.append(command)
                     self.chat_id = chat_id
             else:
-                print "A cagar!"
+                self.sendMessage(chat_id, "A cagar a la via!")
 
     def respond(self, response):
         if self.chat_id is not None:
