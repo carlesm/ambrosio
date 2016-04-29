@@ -1,13 +1,15 @@
 from Action import Action
+import subprocess
 
-class MusicPlayer(Action):
-    """MusicPlayer for Ambrosio"""
+
+class WakeAction(Action):
+    """Wakes the computer"""
     def __init__(self, cfg):
-        super(MusicPlayer, self).__init__(cfg)
-        self.triggers = ["music", "audio"]
+        super(WakeAction, self).__init__(cfg)
+        self.triggers = ["wake"]
 
     def do(self, command):
-        print "Will play music ", " ".join(command)
+        print "Will wake a computer ", " ".join(command)
         return "OK"
 
     def is_for_you(self, word):

@@ -22,8 +22,9 @@ class Ambrosio(object):
         self.channels.append(c)
         self.channels.append(ch.TelegramChannel(self.cfg))
         self.actions = []
-        self.actions.append(ac.MusicPlayer())
-        self.actions.append(ac.SensorAction())
+        self.actions.append(ac.MusicPlayer(self.cfg))
+        # self.actions.append(ac.SensorAction(self.cfg))
+        self.actions.append(ac.WakeAction(self.cfg))
 
 
     def _get_config(self):
@@ -54,7 +55,7 @@ class Ambrosio(object):
         rest_words = words[1:]
         response = None
         for a in self.actions:
-            if a.is_for_you(first_word):
+            if a.is_for_you(first_word.lower()):
                 response = a.do(rest_words)
                 break
         else:

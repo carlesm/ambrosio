@@ -4,8 +4,8 @@ import subprocess
 
 class SensorAction(Action):
     """Sensors for Ambrosio"""
-    def __init__(self):
-        super(SensorAction, self).__init__()
+    def __init__(self, cfg):
+        super(SensorAction, self).__init__(cfg)
         self.triggers = ["temperature"]
 
     def do(self, command):
