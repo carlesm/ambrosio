@@ -2,3 +2,9 @@ telegram:
   token: "134963018:AAEV40aoY1zGK2ECr9kIBYzxDj9NLNDpIRI"
   usuaris:
     - 141990140
+wol:
+  pcs:
+    - nom: pc2
+      mac: "64:51:06:4e:31:56"
+    - nom: carles
+      mac: "12:13:14:15:16:17"
