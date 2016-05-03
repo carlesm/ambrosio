@@ -44,8 +44,8 @@ class MusicPlayer(Action):
             return self._do_play(command)
         elif command[0] == "queue":
             return self._do_queue(command)
-
-        return "OK"
+        else:
+            return "Que?!?!?"
 
 
     def is_for_you(self, word):
