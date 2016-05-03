@@ -18,7 +18,7 @@ class MusicPlayer(Action):
 
     def _do_add(self, command):
         canco = " ".join(command[1:])
-        return self.mpd.add(canco)
+        return self.mpd.addid(canco)
 
     def _do_queue(self, command):
         return "List: %s" %(self.mpd.playlist())
