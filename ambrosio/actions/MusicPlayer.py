@@ -20,6 +20,9 @@ class MusicPlayer(Action):
         canco = " ".join(command[1:])
         return self.mpd.add(canco)
 
+    def _do_queue(self, command):
+        return "List: %s" %(self.mpd.playlist())
+
     def _do_songs(self, command):
         llista = self.mpd.list('file')
         print llista
@@ -39,6 +42,8 @@ class MusicPlayer(Action):
             return self._do_add(command)
         elif command[0] == "play":
             return self._do_play(command)
+        elif command[0] == "queue":
+            return self._do_queue(command)
 
         return "OK"
 
