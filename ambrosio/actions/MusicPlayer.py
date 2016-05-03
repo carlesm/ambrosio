@@ -16,7 +16,10 @@ class MusicPlayer(Action):
     def _do_songs(self, command):
         llista = self.mpd.list('file')
         print llista
-        return '\n'.join(llista)
+        if len(llista) > 0:
+            return '\n'.join(llista)
+        else:
+            return 'Llista buida'
 
     def do(self, command):
         print "Will play music ", " ".join(command)
