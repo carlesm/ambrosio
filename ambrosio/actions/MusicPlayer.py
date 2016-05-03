@@ -13,6 +13,13 @@ class MusicPlayer(Action):
     def _do_update(self, command):
         self.mpd.update()
 
+    def _do_play(self, command):
+        return self.mpd.play()
+
+    def _do_add(self, command):
+        canco = " ".join(command[1:])
+        return self.mpd.add(canco)
+
     def _do_songs(self, command):
         llista = self.mpd.list('file')
         print llista
@@ -25,9 +32,15 @@ class MusicPlayer(Action):
         print "Will play music ", " ".join(command)
         if command[0] == "update":
             self._do_update(command)
-        if command[0] == "songs":
+        elif command[0] == "songs":
             return self._do_songs(command)
+        elif command[0] == "add":
+            return self._do_add(command)
+        elif command[0] == "play":
+            return self._do_play(command)
+
         return "OK"
+
 
     def is_for_you(self, word):
         if word in self.triggers:
