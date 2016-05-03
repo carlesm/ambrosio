@@ -10,9 +10,20 @@ class MusicPlayer(Action):
         self.mpd = MPDClient()
         self.mpd.connect("localhost", "6600")
 
+    def _do_update(self, command):
+        self.mpd.update()
+
+    def _do_songs(self, command):
+        llista = self.mpd.list('file')
+        print llista
+        return '\n'.join(llista)
+
     def do(self, command):
         print "Will play music ", " ".join(command)
-        print command
+        if command[0] == "update":
+            self._do_update(command)
+        if command[0] == "songs":
+            return self._do_songs(command)
         return "OK"
 
     def is_for_you(self, word):
