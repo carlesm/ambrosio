@@ -1,5 +1,5 @@
 from Action import Action
-import subprocess
+from wakeonlan import wol
 
 
 class WakeAction(Action):
@@ -10,7 +10,13 @@ class WakeAction(Action):
 
     def do(self, command):
         print "Will wake a computer ", " ".join(command)
-        return "OK"
+        ret = "No conegut(s)"
+        for arg in command:
+            for pc in self.cfg["wol"]["pcs"]:
+                if arg == pc["nom"]:
+                    wol.send_magic_packet(pc["mac"])
+                    ret = "OK"
+        return ret
 
     def is_for_you(self, word):
         if word in self.triggers:
