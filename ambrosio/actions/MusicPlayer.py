@@ -30,6 +30,7 @@ class MusicPlayer(Action):
 
     def do(self, command):
         print "Will play music ", " ".join(command)
+        print command
         if command[0] == "update":
             self._do_update(command)
         elif command[0] == "songs":
